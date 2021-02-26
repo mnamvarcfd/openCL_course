@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OpenCLpreparation.cpp" />
+    <ClCompile Include="AddTwoVector.cpp" />
+    <ClCompile Include="Summation.cpp" />
+    <ClCompile Include="ShiftArray.cpp" />
+    <ClCompile Include="pureCppFunc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OpenCLpreparation.h" />
+    <ClInclude Include="AddTwoVector.h" />
+    <ClInclude Include="Summation.h" />
+    <ClInclude Include="ShiftArray.h" />
+    <ClInclude Include="pureCppFunc.h" />
+  </ItemGroup>
+</Project>

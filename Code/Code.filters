@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AF_LBM">
+      <UniqueIdentifier>{2a7a33d7-7068-4355-91f2-d1c24ba32adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI">
+      <UniqueIdentifier>{b419eb3f-c229-48b6-b729-bc0b0397495f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\algorithms">
+      <UniqueIdentifier>{fa2d4fc9-d123-45a3-942e-b8e53e440f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\domainOperations">
+      <UniqueIdentifier>{90ffbd3a-42c1-4845-baf0-3d8159378e8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\domainOperations\extrapolation">
+      <UniqueIdentifier>{1bc46788-a3c9-4da3-b83a-d1302af7b906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\domainOperations\geometry">
+      <UniqueIdentifier>{b31ee547-705d-42b8-97b0-275e35864f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\domainOperations\padding">
+      <UniqueIdentifier>{30f0bc34-3671-4551-bc1f-2dc829da65f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\exemples">
+      <UniqueIdentifier>{901a0452-b681-4fcd-9a58-43b64ea28a11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\exemples\shared">
+      <UniqueIdentifier>{d2feba0c-ca29-46c5-a286-d9c66ae7ab6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\gradients">
+      <UniqueIdentifier>{30a76b7e-1a94-422a-889f-0d1142ebef57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\IO">
+      <UniqueIdentifier>{eaea0c6e-0612-456b-a6b0-13afa27db350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\LBM">
+      <UniqueIdentifier>{f1c88bec-c6d0-42e0-bde4-f4dc5d5e46b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\LBM\collisions">
+      <UniqueIdentifier>{7d2fbcc4-2d45-4838-9986-dfd90c186b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\LBM\lattices">
+      <UniqueIdentifier>{443a7210-3a7b-4cdc-a9af-ba07fa2160ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\LBM\streaming">
+      <UniqueIdentifier>{a2f19152-cc1f-4ed6-b47c-b77b521fba8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\LBM\boundaryConditions">
+      <UniqueIdentifier>{90a7421d-f0d4-4c8f-b407-a150c14574ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\memory">
+      <UniqueIdentifier>{9c72cf5e-327c-4995-addc-df31b6167660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\algorithms">
+      <UniqueIdentifier>{c059d308-cd8e-4c56-ac90-437bfc50638e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\communications">
+      <UniqueIdentifier>{aafd4bb5-90c2-44c7-b377-100c8fb959b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\domainOperations">
+      <UniqueIdentifier>{5df9118c-5166-46a2-b4c0-89a646ca7f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\gradients">
+      <UniqueIdentifier>{3ff1a4aa-3c8d-441f-9592-1b2e9c636002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\IO">
+      <UniqueIdentifier>{18698b60-9ba8-4536-bb83-ffd7ca961428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\LBM">
+      <UniqueIdentifier>{41bec505-0ead-4525-b08c-9549588d1056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\multiBlocks">
+      <UniqueIdentifier>{969b7a53-67cf-4389-8dde-ac19840aaeb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\domainOperations\extrapolation">
+      <UniqueIdentifier>{d6bc2b7f-de92-49c5-988d-843b43112c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM_MPI\LBM\streaming">
+      <UniqueIdentifier>{2e826ed3-ea84-488b-9f97-2e8c823aedce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\externalContributions">
+      <UniqueIdentifier>{2d702e81-c3d5-4c72-8880-fc133375894d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\externalContributions\libraries">
+      <UniqueIdentifier>{83c8c804-3099-469b-818b-7982d3728d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\externalContributions\libraries\tinyxml2_edit">
+      <UniqueIdentifier>{b02f4679-f258-4eb5-8cfd-dd161f3b8f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AF_LBM\externalContributions\stackOverFlow">
+      <UniqueIdentifier>{eddfcdbf-dffe-46e2-9200-b390d37ba466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodesWithNoLicence">
+      <UniqueIdentifier>{2093ae59-dda6-457e-80b8-3924ce2562a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodesWithNoLicence\MPI_TO_SEQUENTIAL">
+      <UniqueIdentifier>{d366f093-37f9-421b-96e2-69fb1d4ca8d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MAIN">
+      <UniqueIdentifier>{c15129f0-0775-4820-8f09-60c6885b707e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\AF_LBM\algorithms\algorithms.h">
+      <Filter>AF_LBM\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\domainOperations\extrapolation\extrapolation.h">
+      <Filter>AF_LBM\domainOperations\extrapolation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\domainOperations\geometry\geometry.h">
+      <Filter>AF_LBM\domainOperations\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\domainOperations\padding\padding.h">
+      <Filter>AF_LBM\domainOperations\padding</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\exemples\shared\AF_POISEUILLE2D.h">
+      <Filter>AF_LBM\exemples\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\exemples\shared\AF_STATIC_MIXER.h">
+      <Filter>AF_LBM\exemples\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\externalContributions\libraries\tinyxml2_edit\tinyxml2_edit.h">
+      <Filter>AF_LBM\externalContributions\libraries\tinyxml2_edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\externalContributions\stackOverFlow\CPP_UTILITY_FUNCTIONS.h">
+      <Filter>AF_LBM\externalContributions\stackOverFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\gradients\gradients.h">
+      <Filter>AF_LBM\gradients</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\IO\files.h">
+      <Filter>AF_LBM\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\IO\vtk.h">
+      <Filter>AF_LBM\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\LBM\collisions\collisions.h">
+      <Filter>AF_LBM\LBM\collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\LBM\lattices\lattices.h">
+      <Filter>AF_LBM\LBM\lattices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\LBM\boundaryConditions\contactAngle.h">
+      <Filter>AF_LBM\LBM\boundaryConditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\LBM\streaming\streaming.h">
+      <Filter>AF_LBM\LBM\streaming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\memory\AF_MEMORY_MANAGEMENT.h">
+      <Filter>AF_LBM\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\algorithms\MPI_MISCELLANEOUS.h">
+      <Filter>AF_LBM_MPI\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\communications\MPI_BlockBoundary.h">
+      <Filter>AF_LBM_MPI\communications</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\domainOperations\extrapolation\MPI_EXTRAPOLATION.h">
+      <Filter>AF_LBM_MPI\domainOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\gradients\MPI_GRADIENTS.h">
+      <Filter>AF_LBM_MPI\gradients</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\IO\MPI_FILE_IO.h">
+      <Filter>AF_LBM_MPI\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\IO\MPI_POPULATION_IO.h">
+      <Filter>AF_LBM_MPI\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\LBM\streaming\MPI_STREAMING.h">
+      <Filter>AF_LBM_MPI\LBM\streaming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM_MPI\multiBlocks\MPI_SPLIT_MERGE_ARRAY.h">
+      <Filter>AF_LBM_MPI\multiBlocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\externalContributions\libraries\tinyxml2_edit\tinyxml2_customFunctions.h">
+      <Filter>AF_LBM\externalContributions\libraries\tinyxml2_edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AF_LBM\AF_LBM.h">
+      <Filter>AF_LBM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CodesWithNoLicence\MPI_TO_SEQUENTIAL\MPI_TO_SEQUENTIAL.h">
+      <Filter>CodesWithNoLicence</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\AF_LBM\algorithms\algorithms.cpp">
+      <Filter>AF_LBM\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\domainOperations\extrapolation\extrapolation.cpp">
+      <Filter>AF_LBM\domainOperations\extrapolation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\domainOperations\geometry\geometry.cpp">
+      <Filter>AF_LBM\domainOperations\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\domainOperations\padding\padding.cpp">
+      <Filter>AF_LBM\domainOperations\padding</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\exemples\shared\AF_POISEUILLE2D.cpp">
+      <Filter>AF_LBM\exemples\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\exemples\shared\AF_STATIC_MIXER.cpp">
+      <Filter>AF_LBM\exemples\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\externalContributions\libraries\tinyxml2_edit\tinyxml2_customFunctions.cpp">
+      <Filter>AF_LBM\externalContributions\libraries\tinyxml2_edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\externalContributions\libraries\tinyxml2_edit\tinyxml2_edit.cpp">
+      <Filter>AF_LBM\externalContributions\libraries\tinyxml2_edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\externalContributions\stackOverFlow\CPP_UTILITY_FUNCTIONS.cpp">
+      <Filter>AF_LBM\externalContributions\stackOverFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\gradients\gradients.cpp">
+      <Filter>AF_LBM\gradients</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\IO\files.cpp">
+      <Filter>AF_LBM\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\IO\vtk.cpp">
+      <Filter>AF_LBM\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\LBM\collisions\collisions.cpp">
+      <Filter>AF_LBM\LBM\collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\LBM\lattices\lattices.cpp">
+      <Filter>AF_LBM\LBM\lattices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\LBM\boundaryConditions\contactAngle.cpp">
+      <Filter>AF_LBM\LBM\boundaryConditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\LBM\streaming\streaming.cpp">
+      <Filter>AF_LBM\LBM\streaming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM\memory\AF_MEMORY_MANAGEMENT.cpp">
+      <Filter>AF_LBM\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\algorithms\MPI_MISCELLANEOUS.cpp">
+      <Filter>AF_LBM_MPI\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\communications\MPI_BlockBoundary.cpp">
+      <Filter>AF_LBM_MPI\communications</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\domainOperations\extrapolation\MPI_EXTRAPOLATION.cpp">
+      <Filter>AF_LBM_MPI\domainOperations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\gradients\MPI_GRADIENTS.cpp">
+      <Filter>AF_LBM_MPI\gradients</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\IO\MPI_FILE_IO.cpp">
+      <Filter>AF_LBM_MPI\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\IO\MPI_POPULATION_IO.cpp">
+      <Filter>AF_LBM_MPI\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\LBM\streaming\MPI_STREAMING.cpp">
+      <Filter>AF_LBM_MPI\LBM\streaming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AF_LBM_MPI\multiBlocks\MPI_SPLIT_MERGE_ARRAY.cpp">
+      <Filter>AF_LBM_MPI\multiBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CodesWithNoLicence\MPI_TO_SEQUENTIAL\MPI_TO_SEQUENTIAL.cpp">
+      <Filter>CodesWithNoLicence</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
