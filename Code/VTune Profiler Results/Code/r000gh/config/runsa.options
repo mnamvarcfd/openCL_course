@@ -1,0 +1,25 @@
+-r
+E:\openCL_course\Code\VTune Profiler Results\Code\r000gh
+--itt-config=frame
+--event-mux-factor=5
+--etw-config=dma,frames
+--data-limit-mb=1000
+--disk-space-limit=0
+--type=opencl_ex
+--gpu-config=sysinfo
+--type=opencl,mediasdk
+--type=level_zero
+--opencl-trace-mode=default
+--itt-config=task
+--type=level_zero
+--mrte-type=java,dotnet
+--gpu-kernels-to-profile=*#1#1#4294967295
+--gpu-profiling-type=bblatency
+--event-config=CPU_CLK_UNHALTED.THREAD:sa=2800000,CPU_CLK_UNHALTED.REF_TSC:sample:sa=2800000,INST_RETIRED.ANY:sample:sa=2800000,CPU_CLK_UNHALTED.REF_XCLK:sa=100003,CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE:sa=100003
+--platform-type=117
+--uncore-sampling-interval=10
+--mrte-mode=auto
+--etw-config=clr,js
+--p-state-trigger=CPU_CLK_UNHALTED.REF_TSC
+--
+E:\openCL_course\Code\workingDirectory\Code.exe

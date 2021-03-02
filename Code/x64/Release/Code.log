@@ -1,36 +1,10 @@
-﻿  AddTwoVector.cpp
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(22,1): warning C4275: non dll-interface class 'std::exception' used as base for dll-interface class 'af::exception'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vcruntime_exception.h(48): message : see declaration of 'std::exception'
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(21): message : see declaration of 'af::exception'
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\AddTwoVector.cpp(15,54): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\AddTwoVector.cpp(25,23): warning C4018: '<': signed/unsigned mismatch
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\AddTwoVector.cpp(97,23): warning C4018: '<': signed/unsigned mismatch
-  Main.cpp
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(22,1): warning C4275: non dll-interface class 'std::exception' used as base for dll-interface class 'af::exception'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vcruntime_exception.h(48): message : see declaration of 'std::exception'
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(21): message : see declaration of 'af::exception'
-  OpenCLpreparation.cpp
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(22,1): warning C4275: non dll-interface class 'std::exception' used as base for dll-interface class 'af::exception'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vcruntime_exception.h(48): message : see declaration of 'std::exception'
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(21): message : see declaration of 'af::exception'
-  pureCppFunc.cpp
-  ShiftArray.cpp
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(22,1): warning C4275: non dll-interface class 'std::exception' used as base for dll-interface class 'af::exception'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vcruntime_exception.h(48): message : see declaration of 'std::exception'
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(21): message : see declaration of 'af::exception'
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\ShiftArray.cpp(16,66): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\ShiftArray.cpp(24,23): warning C4018: '<': signed/unsigned mismatch
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\ShiftArray.cpp(90,23): warning C4018: '<': signed/unsigned mismatch
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\ShiftArray.cpp(93,23): warning C4018: '<': signed/unsigned mismatch
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\ShiftArray.cpp(97,23): warning C4018: '<': signed/unsigned mismatch
-  Summation.cpp
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(22,1): warning C4275: non dll-interface class 'std::exception' used as base for dll-interface class 'af::exception'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vcruntime_exception.h(48): message : see declaration of 'std::exception'
-C:\Program Files\ArrayFire\v3_8_0\include\af\exception.h(21): message : see declaration of 'af::exception'
-D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\Summation.cpp(55,42): warning C4267: '=': conversion from 'size_t' to 'cl_int', possible loss of data
+﻿  TaskSize.cpp
+E:\openCL_course\Code\TaskSize.cpp(11,23): warning C4018: '<': signed/unsigned mismatch
+E:\openCL_course\Code\TaskSize.cpp(19,23): warning C4018: '<': signed/unsigned mismatch
+E:\openCL_course\Code\TaskSize.cpp(31,23): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  37 of 39 functions (94.9%) were compiled, the rest were copied from previous compilation.
-    9 functions were new in current compilation
+  3 of 62 functions ( 4.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Code.vcxproj -> D:\private\Namvar\PhDstuff\OpenCL\openCL_course\Code\workingDirectory\Code.exe
+  Code.vcxproj -> E:\openCL_course\Code\workingDirectory\Code.exe

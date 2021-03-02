@@ -3,16 +3,29 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="OpenCLpreparation.cpp" />
-    <ClCompile Include="AddTwoVector.cpp" />
-    <ClCompile Include="Summation.cpp" />
-    <ClCompile Include="ShiftArray.cpp" />
-    <ClCompile Include="pureCppFunc.cpp" />
+    <ClCompile Include="AddTwoVector.cpp">
+      <Filter>AddTwoVector</Filter>
+    </ClCompile>
+    <ClCompile Include="AddTwoVector_OCL.cpp">
+      <Filter>AddTwoVector</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSize.cpp" />
+    <ClCompile Include="TaskSize_OCL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenCLpreparation.h" />
-    <ClInclude Include="AddTwoVector.h" />
-    <ClInclude Include="Summation.h" />
-    <ClInclude Include="ShiftArray.h" />
-    <ClInclude Include="pureCppFunc.h" />
+    <ClInclude Include="AddTwoVector.h">
+      <Filter>AddTwoVector</Filter>
+    </ClInclude>
+    <ClInclude Include="AddTwoVector_OCL.h">
+      <Filter>AddTwoVector</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSize.h" />
+    <ClInclude Include="TaskSize_OCL.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AddTwoVector">
+      <UniqueIdentifier>{56a6f2e8-54a8-4e03-848a-7e38a583fa12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
