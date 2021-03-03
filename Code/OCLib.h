@@ -12,7 +12,7 @@
 #include <CL/cl.h>
 #include <CL/cl.hpp>
 
-class OpenCLpreparation
+class OCLib
 {
 
 
@@ -22,9 +22,13 @@ public:
 	cl_device_id device;       
 	cl_context context;              
 	cl_command_queue queue;           
-	cl_program program;               
-	cl_kernel kernel;                
+	cl_program program;                  
 	char* programSource;
+	size_t globalSize, localSize;
+
+	
+	cl_kernel kernels[5];
+	std::vector<const char*> kernelNames;
 
 private:
 	cl_int err;
@@ -33,9 +37,13 @@ private:
 	cl_device_id inUseDevice;
 
 public:
-	OpenCLpreparation();
+	OCLib();
+	OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename,
+	                  std::vector<const char*> kernelNames_);
+	OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename,
+	                  std::vector<std::string> kernelNames);
 	void DisplayPlatformsAndDeviceInfo();
-	OpenCLpreparation(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename);
+	OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename);
 	void DisplayPlatformsAndDevicesInfo();
 	cl_platform_id choosePlatform(int ChoosenPlatformID);
 	cl_platform_id create_platform(int ChoosenPlatformID);
@@ -67,5 +75,6 @@ public:
 
 	void host2Device(cl_mem& d_a, const void* h_a, size_t Dim);
 	void device2Host(cl_mem& d_array, void* h_array, size_t Dim);
+	void kernelExecut(const char* kernelName, std::vector<size_t> intVar, std::vector<cl_mem> clArray);
 };
 

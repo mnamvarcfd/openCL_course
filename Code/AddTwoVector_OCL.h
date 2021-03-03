@@ -1,11 +1,11 @@
 #pragma once
 #include "AddTwoVector.h"
-#include "OpenCLpreparation.h"
+#include "OCLib.h"
 
 class AddTwoVector_OCL :
     public AddTwoVector
 {
-    OpenCLpreparation OCLpreparation;
+    OCLib OCLpreparation;
 
     //unsigned int ARRAY_SIZE;
 

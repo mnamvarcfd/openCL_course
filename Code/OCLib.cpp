@@ -1,5 +1,7 @@
-#include "OpenCLpreparation.h"
-OpenCLpreparation::OpenCLpreparation() {
+
+#include "OCLib.h"
+
+OCLib::OCLib() {
 
 }
 ////////#define CL_SUCCESS_OR_RETURN(code) do { \
@@ -7,9 +9,18 @@ OpenCLpreparation::OpenCLpreparation() {
 ////////    if (code != CL_SUCCESS) { return code; } \
 ////////}while (0);
 
-OpenCLpreparation::OpenCLpreparation(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename){
 
-    DisplayPlatformsAndDevicesInfo();
+
+
+OCLib::OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename, std::vector<const char*> kernelNames_){
+	
+    kernelNames = kernelNames_;
+    //kernelNames.push_back("Comput") ;
+
+
+    localSize = 64;
+
+	DisplayPlatformsAndDevicesInfo();
 
     //Chosse a platform
     platform = choosePlatform(ChoosenPlatformID);
@@ -34,10 +45,12 @@ OpenCLpreparation::OpenCLpreparation(int ChoosenPlatformID, int ChoosenDeviceID,
     BuildProgram(program, device);
 
     // Create the compute kernel in the program we wish to run
-    #define KERNEL_FUNC "Comput"
-    kernel = clCreateKernel(program, KERNEL_FUNC, &err);
-
-
+    for (int i = 0; i < kernelNames.size(); i++) {
+        std::cout << kernelNames[i] << std::endl;
+        const char* KERNEL_FUNC = kernelNames[i];
+        kernels[i] = clCreateKernel(program, KERNEL_FUNC, &err);
+    }
+	
     //Create a command queue
     //Does not support profiling or out-of-order-execution
     queue = clCreateCommandQueue(context, device, 0, &err);
@@ -50,9 +63,8 @@ OpenCLpreparation::OpenCLpreparation(int ChoosenPlatformID, int ChoosenDeviceID,
 
 }
 
-
 //From: git@github.com:sivagnanamn / opencl - device - info.git
-void OpenCLpreparation::DisplayPlatformsAndDevicesInfo() {
+void OCLib::DisplayPlatformsAndDevicesInfo() {
 
     printf("\nStarting OpenCL device query: \n");
     printf("------------------------------\n");
@@ -242,7 +254,7 @@ void OpenCLpreparation::DisplayPlatformsAndDevicesInfo() {
 
 }
 
-cl_platform_id OpenCLpreparation::choosePlatform(int ChoosenPlatformID) {
+cl_platform_id OCLib::choosePlatform(int ChoosenPlatformID) {
 
 return allPlatforms[ChoosenPlatformID];
 }
@@ -257,7 +269,7 @@ The `device` structure corresponds to the first accessible device
 associated with the platform. Because the second parameter is
 `CL_DEVICE_TYPE_GPU`, this device must be a GPU.
 */
-cl_device_id OpenCLpreparation::chooseDevice(cl_platform_id platform, int deviceID) {
+cl_device_id OCLib::chooseDevice(cl_platform_id platform, int deviceID) {
 
     cl_uint deviceCount;
     cl_device_id* devices;
@@ -269,8 +281,8 @@ cl_device_id OpenCLpreparation::chooseDevice(cl_platform_id platform, int device
 
     return devices[deviceID];
 }
-
-cl_context OpenCLpreparation::createContext(cl_device_id device){
+            
+cl_context OCLib::createContext(cl_device_id device){
 
     cl_int err;
     context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
@@ -291,7 +303,7 @@ The `device` structure corresponds to the first accessible device
 associated with the platform. Because the second parameter is
 `CL_DEVICE_TYPE_GPU`, this device must be a GPU.
 */
-cl_device_id OpenCLpreparation::create_device(cl_platform_id platform) {
+cl_device_id OCLib::create_device(cl_platform_id platform) {
 
     cl_device_id dev;
     cl_int err;
@@ -325,7 +337,7 @@ cl_device_id OpenCLpreparation::create_device(cl_platform_id platform) {
   the actual processors(CPU, GPU etc.) that perform calculations. So if you use the Intel
   platform, a valid context with this platform would include a CPU device.While if you use the
   NVIDIA platform, a valid context would include an NVIDIA GPU device.*/
-void OpenCLpreparation::displayPlatformInfo(cl_platform_id platform)
+void OCLib::displayPlatformInfo(cl_platform_id platform)
 {
     cl_int err;
     cl_platform_info Param_Name[5] = { CL_PLATFORM_PROFILE, CL_PLATFORM_VERSION, CL_PLATFORM_NAME, CL_PLATFORM_VENDOR,CL_PLATFORM_EXTENSIONS };
@@ -348,7 +360,7 @@ void OpenCLpreparation::displayPlatformInfo(cl_platform_id platform)
 
 }
 
-void OpenCLpreparation::displayDeviceInfo(cl_device_id device)
+void OCLib::displayDeviceInfo(cl_device_id device)
 {
 
 cl_int err_num;
@@ -430,7 +442,7 @@ printf("\n");
 }
 
 
-void OpenCLpreparation::platforms_info()
+void OCLib::platforms_info()
 {
   /*A platform is a specific OpenCL implementation, for instance AMD APP, NVIDIA or Intel OpenCL.
     A context is a platform with a set of available devices for that platform.And the devices are 
@@ -480,7 +492,7 @@ void OpenCLpreparation::platforms_info()
 }
 
 
-void OpenCLpreparation::Devices_info() {
+void OCLib::Devices_info() {
     printf("================================ Devices info ================================\n");
 
     char* value;
@@ -561,12 +573,12 @@ void check_cl_error(cl_int err_num, char* msg) {
 }
 
 /* Create program from a file and compile it */
-char* OpenCLpreparation::readProgramSource(const char* filename) {
+char* OCLib::readProgramSource(const char* filename) {
 
     FILE* file;
 
     /* Read program file and place content into buffer */
-    fopen_s(&file, filename, "r");
+    fopen_s(&file, filename, "rb");
     if (file == NULL) {
         perror("Couldn't find the program file");
         exit(1);
@@ -585,7 +597,7 @@ char* OpenCLpreparation::readProgramSource(const char* filename) {
 }
 
 
-cl_program OpenCLpreparation::CreateProgram(cl_context context, char* programSource){
+cl_program OCLib::CreateProgram(cl_context context, char* programSource){
 
     cl_program program;
     int err;
@@ -612,7 +624,7 @@ cl_program OpenCLpreparation::CreateProgram(cl_context context, char* programSou
 }
 
 
- void OpenCLpreparation::BuildProgram(cl_program &program, cl_device_id device) {
+ void OCLib::BuildProgram(cl_program &program, cl_device_id device) {
 /* Build program
 
 The fourth parameter accepts options that configure the compilation.
@@ -644,33 +656,73 @@ with -cl-opt-disable.
 }
  
 
- cl_mem OpenCLpreparation::newDoubleArrayRead(size_t Dim) {
+ cl_mem OCLib::newDoubleArrayRead(size_t Dim) {
      size_t bytes = Dim * sizeof(double);
      cl_mem Array = clCreateBuffer(context, CL_MEM_READ_ONLY, bytes, NULL, NULL);
      return Array;
  }
 
- cl_mem OpenCLpreparation::newDoubleArrayWrit(size_t Dim) {
+ cl_mem OCLib::newDoubleArrayWrit(size_t Dim) {
      size_t bytes = Dim * sizeof(double);
      cl_mem Array = clCreateBuffer(context, CL_MEM_READ_ONLY, bytes, NULL, NULL);
      return Array;
  }
 
- cl_mem OpenCLpreparation::newDoubleArrayReadWrit(size_t Dim) {
+ cl_mem OCLib::newDoubleArrayReadWrit(size_t Dim) {
      size_t bytes = Dim * sizeof(double);
      cl_mem Array = clCreateBuffer(context, CL_MEM_READ_WRITE, bytes, NULL, NULL);
      return Array;
  }
 
 
- void OpenCLpreparation::host2Device(cl_mem& d_array, const void* h_array, size_t Dim) {
+ void OCLib::host2Device(cl_mem& d_array, const void* h_array, size_t Dim) {
 
      size_t bytes = Dim * sizeof(h_array);
      clEnqueueWriteBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
  }
 
- void OpenCLpreparation::device2Host(cl_mem& d_array, void* h_array, size_t Dim) {
+ void OCLib::device2Host(cl_mem& d_array, void* h_array, size_t Dim) {
 
      size_t bytes = Dim * sizeof(h_array);
      clEnqueueReadBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
+ }
+
+
+
+
+ void OCLib::kernelExecut(const char* kernelName, std::vector<size_t> intVar, std::vector<cl_mem> clArray)
+ {
+     cl_kernel kernel = kernels[0];
+  
+     globalSize = intVar[0];
+
+	for(int i=0; i<5; i++)
+	{
+        if (kernelNames[i] == kernelName) {
+            kernel = kernels[i];
+        }
+	}
+
+     // Set the arguments to our compute kernel
+     for (int i = 0; i < clArray.size(); i++) {
+         //std::cout << "clArray  "<< i << std::endl;
+         err = clSetKernelArg(kernel, i, sizeof(cl_mem), &clArray[i]);
+     }
+     for (int i = 1; i < intVar.size(); i++) {
+         //std::cout << "intVar  " << i << std::endl;
+         err = clSetKernelArg(kernel, i + clArray.size()-1, sizeof(unsigned int), &intVar[i]);
+     }
+
+     //err = clSetKernelArg(kernel, 0, sizeof(cl_mem), &d_a);
+     //err |= clSetKernelArg(kernel, 1, sizeof(unsigned int), &ARRAY_SIZE);
+
+
+     // Execute the kernel over the entire range of the data set  
+     err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
+
+
+     //std::cout << "error  : "<< err << std::endl;
+     // Wait for the command queue to get serviced before reading back results
+     clFinish(queue);
+
  }

@@ -1,10 +1,1 @@
-﻿  TaskSize.cpp
-E:\openCL_course\Code\TaskSize.cpp(11,23): warning C4018: '<': signed/unsigned mismatch
-E:\openCL_course\Code\TaskSize.cpp(19,23): warning C4018: '<': signed/unsigned mismatch
-E:\openCL_course\Code\TaskSize.cpp(31,23): warning C4018: '<': signed/unsigned mismatch
-  Generating code
-  3 of 62 functions ( 4.8%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Code.vcxproj -> E:\openCL_course\Code\workingDirectory\Code.exe
+﻿  Code.vcxproj -> E:\openCL_course\Code\workingDirectory\Code.exe

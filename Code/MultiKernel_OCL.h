@@ -1,9 +1,9 @@
 #pragma once
-#include "TaskSize.h"
+#include "MultiKernel.h"
 #include "OCLib.h"
 
-class TaskSize_OCL :
-    public TaskSize
+class MultiKernel_OCL :
+    public MultiKernel
 {
     OCLib OCLpreparation;
 
@@ -20,8 +20,8 @@ class TaskSize_OCL :
     size_t bytes;
 
 public:
-	TaskSize_OCL();
+	MultiKernel_OCL();
 	void mainFunc();
-    ~TaskSize_OCL();
+    ~MultiKernel_OCL();
 };
 

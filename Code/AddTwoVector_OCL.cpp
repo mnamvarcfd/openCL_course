@@ -2,12 +2,12 @@
 
 AddTwoVector_OCL::AddTwoVector_OCL():AddTwoVector() {
 
-    const char* filename = "vecAdd.cl";
-    #define KERNEL_FUNC "vecAdd"
-    localSize = 64;
+    std::vector<const char*> kernelNames = {"vecAdd"};
+    OCLpreparation = OCLib(0, 0, "vecAdd.cl", kernelNames);
 
-    OCLpreparation = OpenCLpreparation(0, 0, filename);
-
+    localSize = OCLpreparation.localSize;
+    globalSize = ceil(ARRAY_SIZE / (float)localSize) * localSize;
+	
     h_a = a;
     h_b = b;
     h_c = c;
@@ -20,37 +20,9 @@ AddTwoVector_OCL::AddTwoVector_OCL():AddTwoVector() {
     OCLpreparation.host2Device(d_b, h_b, ARRAY_SIZE);
 }
 
-
-
-
-
 void AddTwoVector_OCL::mainFunc(){
 
-
-    //=========================================================================================
-    queue = OCLpreparation.queue;
-    kernel = OCLpreparation.kernel;
-
-    // Number of total work items - localSize must be devisor
-    globalSize = ceil(ARRAY_SIZE / (float)localSize) * localSize;
-    std::cout << "globalSize: " << globalSize << std::endl;
-
-    // Set the arguments to our compute kernel
-    err = clSetKernelArg(kernel, 0, sizeof(cl_mem), &d_a);
-    err |= clSetKernelArg(kernel, 1, sizeof(cl_mem), &d_b);
-    err |= clSetKernelArg(kernel, 2, sizeof(cl_mem), &d_c);
-    err |= clSetKernelArg(kernel, 3, sizeof(unsigned int), &ARRAY_SIZE);
-
-    // Execute the kernel over the entire range of the data set  
-    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
-
-    // Wait for the command queue to get serviced before reading back results
-    clFinish(queue);
-    //=========================================================================================
-
-
-
-	
+    OCLpreparation.kernelExecut("vecAdd", { globalSize, ARRAY_SIZE }, { d_a, d_b, d_c });
 
     // Read the results from the device
     OCLpreparation.device2Host(d_c, h_c, ARRAY_SIZE);
@@ -77,3 +49,26 @@ AddTwoVector_OCL::~AddTwoVector_OCL() {
     //clReleaseCommandQueue(queue);
     //clReleaseContext(context);
 }
+
+
+
+////=========================================================================================
+//queue = OCLpreparation.queue;
+//kernel = OCLpreparation.kernels[0];
+
+//// Set the arguments to our compute kernel
+//err = clSetKernelArg(kernel, 0, sizeof(cl_mem), &d_a);
+//err |= clSetKernelArg(kernel, 1, sizeof(cl_mem), &d_b);
+//err |= clSetKernelArg(kernel, 2, sizeof(cl_mem), &d_c);
+//err |= clSetKernelArg(kernel, 3, sizeof(unsigned int), &ARRAY_SIZE);
+
+//// Execute the kernel over the entire range of the data set  
+//err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
+
+//// Wait for the command queue to get serviced before reading back results
+//clFinish(queue);
+////=========================================================================================
+
+
+
+

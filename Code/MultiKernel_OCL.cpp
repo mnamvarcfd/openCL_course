@@ -1,14 +1,24 @@
-#include "TaskSize_OCL.h"
+#include "MultiKernel_OCL.h"
 
-TaskSize_OCL::TaskSize_OCL():TaskSize() {
+
+MultiKernel_OCL::MultiKernel_OCL():MultiKernel() {
+
+    const char* filename = "MultiKernel.cl";
+
 
     std::vector<const char*> kernelNames;
-    kernelNames.push_back("Comput");
-    
-    OCLpreparation = OCLib(0, 0, "TaskSize.cl", kernelNames);
+    kernelNames.push_back("kernel1");
+    kernelNames.push_back("kernel2");
 
+
+   
+    OCLpreparation = OCLib(0, 0, filename, kernelNames);
+
+	
     localSize = OCLpreparation.localSize;
     globalSize = ceil(ARRAY_SIZE / (float)localSize) * localSize;
+
+
 
     h_a = a;
 
@@ -17,12 +27,15 @@ TaskSize_OCL::TaskSize_OCL():TaskSize() {
     OCLpreparation.host2Device(d_a, h_a, ARRAY_SIZE);
 }
 
-void TaskSize_OCL::mainFunc(){
+void MultiKernel_OCL::mainFunc(){
     
-    OCLpreparation.kernelExecut("Comput", { globalSize, ARRAY_SIZE }, { d_a });
 
-    // Read the results from the device
+	
+    OCLpreparation.kernelExecut("kernel1", { globalSize, ARRAY_SIZE }, { d_a });
+
     OCLpreparation.device2Host(d_a, h_a, ARRAY_SIZE);
+
+
 	
     double sum = 0;
     for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -39,9 +52,25 @@ void TaskSize_OCL::mainFunc(){
     }
 
 
+
+    OCLpreparation.kernelExecut("kernel2", { globalSize, ARRAY_SIZE }, { d_a });
+
+    OCLpreparation.device2Host(d_a, h_a, ARRAY_SIZE);
+
+
+	
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        //printf("val: %f\n", h_a[i]);
+        if (abs(h_a[i] - 1024) > 0.001) {
+            printf("Test failed\n");
+            exit;
+        }
+    }
+    printf("Test passed\n");
+	
 }
 
-TaskSize_OCL::~TaskSize_OCL() {
+MultiKernel_OCL::~MultiKernel_OCL() {
     // release OpenCL resources
     clReleaseMemObject(d_a);
     //clReleaseProgram(program);

@@ -4,7 +4,7 @@
 
 AddTwoVector::AddTwoVector(){
 
-    ARRAY_SIZE = 100000000;
+    ARRAY_SIZE = 1000;
 
     a = new double[ARRAY_SIZE];
     b = new double[ARRAY_SIZE];

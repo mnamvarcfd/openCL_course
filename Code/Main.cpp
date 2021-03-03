@@ -5,6 +5,8 @@
 #include "TaskSize.h"
 #include "TaskSize_OCL.h"
 
+#include "MultiKernel.h"
+#include "MultiKernel_OCL.h"
 
 int main() {
     clock_t t1, t2;
@@ -17,7 +19,9 @@ int main() {
 
     TaskSize objCpp = TaskSize();
     TaskSize_OCL  objOCL = TaskSize_OCL();
-    
+
+    //MultiKernel objCpp = MultiKernel();
+    //MultiKernel_OCL  objOCL = MultiKernel_OCL();
 
     t1 = clock();
 	

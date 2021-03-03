@@ -1,6 +1,6 @@
 
 ////////// OpenCL kernel. Each work item takes care of one element of c
-__kernel void Comput(__global double* a, const unsigned int n)
+__kernel void kernel1(__global double* a, const unsigned int n)
 {
     //Get our global thread ID                                
     int i = get_global_id(0);
@@ -16,3 +16,16 @@ __kernel void Comput(__global double* a, const unsigned int n)
     }
 
 }
+
+
+__kernel void kernel2(  __global double *a, const unsigned int n)
+{                                                             
+    //Get our global thread ID                                
+    int i = get_global_id(0);                                
+                                                               
+    //Make sure we do not go out of bounds 
+    if (i<n) {
+        a[i] = 1024;
+    }
+
+} 

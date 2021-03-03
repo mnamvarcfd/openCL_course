@@ -22,14 +22,18 @@
     <ClCompile Include="AddTwoVector.cpp" />
     <ClCompile Include="AddTwoVector_OCL.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="OpenCLpreparation.cpp" />
+    <ClCompile Include="MultiKernel.cpp" />
+    <ClCompile Include="MultiKernel_OCL.cpp" />
+    <ClCompile Include="OCLib.cpp" />
     <ClCompile Include="TaskSize.cpp" />
     <ClCompile Include="TaskSize_OCL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoVector.h" />
     <ClInclude Include="AddTwoVector_OCL.h" />
-    <ClInclude Include="OpenCLpreparation.h" />
+    <ClInclude Include="MultiKernel.h" />
+    <ClInclude Include="MultiKernel_OCL.h" />
+    <ClInclude Include="OCLib.h" />
     <ClInclude Include="TaskSize.h" />
     <ClInclude Include="TaskSize_OCL.h" />
   </ItemGroup>
