@@ -17,7 +17,6 @@ OCLib::OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename, s
     kernelNames = kernelNames_;
     //kernelNames.push_back("Comput") ;
 
-
     localSize = 64;
 
 	DisplayPlatformsAndDevicesInfo();
@@ -33,18 +32,23 @@ OCLib::OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename, s
     displayDeviceInfo(device);
 
     //Create a context
+	printf("Create a context...\n");
     context = createContext(device);
 
     //Read the file containing openCL code
+    printf("Read the file containing openCL code...\n");
     programSource = readProgramSource(filename);
 
     //Create the program
+    printf("Create the program...\n");
     program = CreateProgram(context, programSource);
 
     // Build the program executable
+    printf("Build the program executable...\n");
     BuildProgram(program, device);
 
     // Create the compute kernel in the program we wish to run
+    printf("Create the compute kernel...\n");
     for (int i = 0; i < kernelNames.size(); i++) {
         std::cout << kernelNames[i] << std::endl;
         const char* KERNEL_FUNC = kernelNames[i];
@@ -52,6 +56,7 @@ OCLib::OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename, s
     }
 	
     //Create a command queue
+    printf("Create a command queue...\n");
     //Does not support profiling or out-of-order-execution
     queue = clCreateCommandQueue(context, device, 0, &err);
     if (err < 0) {
@@ -59,8 +64,7 @@ OCLib::OCLib(int ChoosenPlatformID, int ChoosenDeviceID, const char* filename, s
         exit(1);
     }
 
-
-
+    printf("\nOCL created \n");
 }
 
 //From: git@github.com:sivagnanamn / opencl - device - info.git
@@ -674,6 +678,18 @@ with -cl-opt-disable.
      return Array;
  }
 
+ cl_mem OCLib::newIntArrayRead(size_t Dim) {
+     size_t bytes = Dim * sizeof(unsigned int);
+     cl_mem Array = clCreateBuffer(context, CL_MEM_READ_ONLY, bytes, NULL, NULL);
+     return Array;
+ }
+
+ cl_mem OCLib::newIntArrayReadWrit(size_t Dim) {
+     size_t bytes = Dim * sizeof(unsigned int);
+     cl_mem Array = clCreateBuffer(context, CL_MEM_READ_WRITE, bytes, NULL, NULL);
+     return Array;
+ }
+
 
  void OCLib::host2Device(cl_mem& d_array, const void* h_array, size_t Dim) {
 
@@ -681,48 +697,82 @@ with -cl-opt-disable.
      clEnqueueWriteBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
  }
 
- void OCLib::device2Host(cl_mem& d_array, void* h_array, size_t Dim) {
+ void OCLib::host2DeviceInt(cl_mem& d_array, const void* h_array, size_t Dim) {
 
+     size_t bytes = Dim * sizeof(unsigned int);
+     clEnqueueWriteBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
+ }
+
+ void OCLib::device2Host(cl_mem& d_array, void* h_array, size_t Dim) {
      size_t bytes = Dim * sizeof(h_array);
      clEnqueueReadBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
  }
 
+ void OCLib::device2HostInt(cl_mem& d_array, void* h_array, size_t Dim) {
+     size_t bytes = Dim * sizeof(unsigned int);
+     clEnqueueReadBuffer(queue, d_array, CL_TRUE, 0, bytes, h_array, 0, NULL, NULL);
+ }
 
-
-
- void OCLib::kernelExecut(const char* kernelName, std::vector<size_t> intVar, std::vector<cl_mem> clArray)
+ void OCLib::kernelExecut(const char* kernelName, 
+     unsigned int nLoop,
+     std::vector<unsigned int> intVar,
+     std::vector<double> doubleVar, 
+     std::vector<cl_mem> clArray,
+     std::vector<cl_mem> intArray)
  {
+	
      cl_kernel kernel = kernels[0];
-  
-     globalSize = intVar[0];
+     for (int i = 0; i < 10; i++)
+     {
+         if (kernelNames[i] == kernelName) {
+             kernel = kernels[i];
+         }
+     }
+     std::cout << "kernel: " << kernelName << std::endl;
 
-	for(int i=0; i<5; i++)
-	{
-        if (kernelNames[i] == kernelName) {
-            kernel = kernels[i];
-        }
-	}
+	
+     localSize = (unsigned int)localSize;
+     globalSize = ceil(nLoop / (float)localSize) * localSize;
 
-     // Set the arguments to our compute kernel
+	
+     int cnt = 0;
+     //std::cout << "cnt: " << cnt << std::endl;
+     err = clSetKernelArg(kernel, cnt, sizeof(unsigned int), &nLoop);
+     if (err < 0) std::cout << "nLoop arg error  : " << err << std::endl;
+     cnt++;
+	
+     for (int i = 0; i < intVar.size(); i++) {
+         //std::cout << "cnt: " << cnt << std::endl;
+         err = clSetKernelArg(kernel, cnt, sizeof(unsigned int), &intVar[i]);
+         if (err < 0) std::cout << "intVar arg error  : " << err << std::endl;
+         cnt++;
+     }
+     for (int i = 0; i < doubleVar.size(); i++) {
+         //std::cout << "cnt: " << cnt << std::endl;
+         err = clSetKernelArg(kernel, cnt, sizeof(double), &doubleVar[i]);
+         if(err<0) std::cout << "doubleVar arg error  : " << err << std::endl;
+         cnt++;
+     }
      for (int i = 0; i < clArray.size(); i++) {
-         //std::cout << "clArray  "<< i << std::endl;
-         err = clSetKernelArg(kernel, i, sizeof(cl_mem), &clArray[i]);
+         //std::cout << "cnt: " << cnt << std::endl;
+         err = clSetKernelArg(kernel, cnt, sizeof(cl_mem), &clArray[i]);
+         if (err < 0) std::cout << "clArray arg error  : " << err << std::endl;
+         cnt++;
      }
-     for (int i = 1; i < intVar.size(); i++) {
-         //std::cout << "intVar  " << i << std::endl;
-         err = clSetKernelArg(kernel, i + clArray.size()-1, sizeof(unsigned int), &intVar[i]);
+     for (int i = 0; i < intArray.size(); i++) {
+         //std::cout << "cnt: " << cnt << std::endl;
+         err = clSetKernelArg(kernel, cnt, sizeof(cl_mem), &intArray[i]);
+         if (err < 0) std::cout << "intArray arg error  : " << err << std::endl;
+         cnt++;
      }
-
-     //err = clSetKernelArg(kernel, 0, sizeof(cl_mem), &d_a);
-     //err |= clSetKernelArg(kernel, 1, sizeof(unsigned int), &ARRAY_SIZE);
 
 
      // Execute the kernel over the entire range of the data set  
      err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
-
-
-     //std::cout << "error  : "<< err << std::endl;
+     if (err < 0) std::cout << "Execute kernel error : " << err << std::endl;
+	
      // Wait for the command queue to get serviced before reading back results
      clFinish(queue);
 
  }
+

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Refrence code">
+      <UniqueIdentifier>{196bbef8-1515-4be5-b084-9f14a1f9d6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refrence code\LBMdata">
+      <UniqueIdentifier>{de786b7a-b6da-4fcb-80aa-f1a333628ef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LBMdataTest">
+      <UniqueIdentifier>{4be4072d-b0a7-47ec-8849-b95958654afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScientificComputTest">
+      <UniqueIdentifier>{01142b5c-56a9-4eba-a14b-e849461f1a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refrence code\ScientificComput">
+      <UniqueIdentifier>{2dbcaa4a-f969-4ced-81a1-86e6f5aa510a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Code\OCLib.cpp">
+      <Filter>Refrence code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_gTest\ScientificComput_OCLTest.cpp">
+      <Filter>ScientificComputTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_gTest\ScientificComputTest.cpp">
+      <Filter>ScientificComputTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LBMdata\LBMdata.cpp">
+      <Filter>Refrence code\LBMdata</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_gTest\LBMdataTest\LBMdataTest.cpp">
+      <Filter>LBMdataTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src_gTest\LBMdataTest\LBMdata_OCLTest.cpp">
+      <Filter>LBMdataTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScientificComput.cpp">
+      <Filter>Refrence code\ScientificComput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScientificComput_OCL.cpp">
+      <Filter>Refrence code\ScientificComput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LBMdata\LBMdata_OCL.cpp">
+      <Filter>Refrence code\LBMdata</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Code\OCLib.h">
+      <Filter>Refrence code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src_gTest\ScientificComput_OCLTest.h">
+      <Filter>ScientificComputTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src_gTest\ScientificComputTest.h">
+      <Filter>ScientificComputTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LBMdata\LBMdata.h">
+      <Filter>Refrence code\LBMdata</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src_gTest\LBMdataTest\LBMdataTest.h">
+      <Filter>LBMdataTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src_gTest\LBMdataTest\LBMdata_OCLTest.h">
+      <Filter>LBMdataTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScientificComput.h">
+      <Filter>Refrence code\ScientificComput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScientificComput_OCL.h">
+      <Filter>Refrence code\ScientificComput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LBMdata\LBMdata_OCL.h">
+      <Filter>Refrence code\LBMdata</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

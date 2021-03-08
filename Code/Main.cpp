@@ -1,39 +1,60 @@
-
 #include "AddTwoVector.h"
 #include "AddTwoVector_OCL.h"
 
-#include "TaskSize.h"
-#include "TaskSize_OCL.h"
 
-#include "MultiKernel.h"
-#include "MultiKernel_OCL.h"
+#include "../src/TaskSize/TaskSize.h"
+#include "../src/TaskSize/TaskSize_OCL.h"
+
+#include "../src/MixDoubleIntArray/MixDoubleIntArray.h"
+#include "../src/MixDoubleIntArray/MixDoubleIntArray_OCL.h"
+
+#include "../src/ScientificComput.h"
+#include "../src/ScientificComput_OCL.h"
+
+#include "../src/LBMdata/LBMdata.h"
+#include "../src/LBMdata/LBMdata_OCL.h"
+
 
 int main() {
     clock_t t1, t2;
-    
 
-
-
+	
     //AddTwoVector objCpp = AddTwoVector();
     //AddTwoVector_OCL  objOCL = AddTwoVector_OCL();
 
-    TaskSize objCpp = TaskSize();
-    TaskSize_OCL  objOCL = TaskSize_OCL();
+    //TaskSize objCpp = TaskSize();
+    //TaskSize_OCL  objOCL = TaskSize_OCL();
 
     //MultiKernel objCpp = MultiKernel();
-    //MultiKernel_OCL  objOCL = MultiKernel_OCL();
+    //ScientificComput_OCL  objOCL = ScientificComput_OCL();
 
+    LBMdata objCpp = LBMdata();
+    LBMdata_OCL  objOCL = LBMdata_OCL();
+
+    //MixDoubleIntArray objCpp = MixDoubleIntArray();
+    //MixDoubleIntArray_OCL  objOCL = MixDoubleIntArray_OCL();
+
+    //ScientificComput objCpp = ScientificComput();
+    //ScientificComput_OCL  objOCL = ScientificComput_OCL();
+	
     t1 = clock();
 	
-    objCpp.mainFunc();
+    //objCpp.initDoubleArray();
+    //objCpp.initIntegerArray();
 
 	t2 = clock();
     double CPU_tim = (double)(t2 - t1) / CLOCKS_PER_SEC;
     std::cout << "CPU tim: " << CPU_tim << std::endl;
     
     t1 = clock();
-
-    objOCL.mainFunc();
+    
+    //objOCL.initDoubleArray();
+    //objOCL.initIntegerArray();
+    //objOCL.multyplyScalarDoubleArray();
+    //objOCL.indirectAdressing();
+    //objOCL.macroCal();
+    objOCL.collision();
+	
 
     t2 = clock();
     double GPU_tim = (double)(t2 - t1) / CLOCKS_PER_SEC;
@@ -42,10 +63,10 @@ int main() {
 
     std::cout << "Speed up: " << CPU_tim/ GPU_tim << std::endl;
 	
-    //////const unsigned int ARRAY_SIZE = 1000000;
-    //////double *a = new double[ARRAY_SIZE];
+    //////const unsigned int arraySize = 1000000;
+    //////double *a = new double[arraySize];
 
-    //////for (int i = 0; i < ARRAY_SIZE; i++)
+    //////for (int i = 0; i < arraySize; i++)
     //////{
     //////    a[i] = (double)i;
     //////}
@@ -56,7 +77,7 @@ int main() {
 
     //////t1 = clock();
 
-    //////shiftCpp.shift(a, ARRAY_SIZE);
+    //////shiftCpp.shift(a, arraySize);
 
     //////t2 = clock();
     //////tim = (double)(t2 - t1) / CLOCKS_PER_SEC;
@@ -79,3 +100,11 @@ int main() {
     std::cin >> b;
     return 0;
 }
+
+
+
+
+
+
+
+

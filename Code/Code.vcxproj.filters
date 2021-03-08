@@ -2,56 +2,41 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MultiKernel.cpp">
-      <Filter>MultiKernel</Filter>
-    </ClCompile>
-    <ClCompile Include="MultiKernel_OCL.cpp">
-      <Filter>MultiKernel</Filter>
-    </ClCompile>
-    <ClCompile Include="AddTwoVector.cpp">
-      <Filter>AddTwoVector</Filter>
-    </ClCompile>
-    <ClCompile Include="AddTwoVector_OCL.cpp">
-      <Filter>AddTwoVector</Filter>
-    </ClCompile>
-    <ClCompile Include="TaskSize.cpp">
-      <Filter>TaskSize</Filter>
-    </ClCompile>
-    <ClCompile Include="TaskSize_OCL.cpp">
-      <Filter>TaskSize</Filter>
-    </ClCompile>
     <ClCompile Include="OCLib.cpp" />
+    <ClCompile Include="..\src\LBMdata\LBMdata.cpp">
+      <Filter>LBMdata</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScientificComput.cpp">
+      <Filter>ScientificComput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScientificComput_OCL.cpp">
+      <Filter>ScientificComput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LBMdata\LBMdata_OCL.cpp">
+      <Filter>LBMdata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MultiKernel.h">
-      <Filter>MultiKernel</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiKernel_OCL.h">
-      <Filter>MultiKernel</Filter>
-    </ClInclude>
-    <ClInclude Include="AddTwoVector.h">
-      <Filter>AddTwoVector</Filter>
-    </ClInclude>
-    <ClInclude Include="AddTwoVector_OCL.h">
-      <Filter>AddTwoVector</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskSize.h">
-      <Filter>TaskSize</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskSize_OCL.h">
-      <Filter>TaskSize</Filter>
-    </ClInclude>
     <ClInclude Include="OCLib.h" />
+    <ClInclude Include="..\src\LBMdata\LBMdata.h">
+      <Filter>LBMdata</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScientificComput.h">
+      <Filter>ScientificComput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScientificComput_OCL.h">
+      <Filter>ScientificComput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LBMdata\LBMdata_OCL.h">
+      <Filter>LBMdata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="AddTwoVector">
-      <UniqueIdentifier>{56a6f2e8-54a8-4e03-848a-7e38a583fa12}</UniqueIdentifier>
+    <Filter Include="LBMdata">
+      <UniqueIdentifier>{addcdf1a-de18-4091-a5fe-48f03dba8084}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MultiKernel">
-      <UniqueIdentifier>{020d283e-6b3e-430d-8726-b6fc10def231}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TaskSize">
-      <UniqueIdentifier>{1c41ba0e-d3a9-48b6-b992-bcdc2ad2ce31}</UniqueIdentifier>
+    <Filter Include="ScientificComput">
+      <UniqueIdentifier>{e1546bb1-1b77-4237-b4b3-85eee2ce3ece}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
